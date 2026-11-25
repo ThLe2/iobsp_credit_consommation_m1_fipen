@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIPEN – Crédit à la consommation | IOBSP – Journée 3 | TMK Performances</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0d2b56;
+  --gold:#c8a96b;
+  --blue:#0f4c81;
+  --sky:#e8f1fc;
+  --rouge:#b3261e;
+  --gris:#3c3c3c;
+  --gris-clair:#dfe5ee;
+  --blanc:#ffffff;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:#f2f4f8;
+  font-family:"Nunito",-apple-system,"Segoe UI",Arial,sans-serif;
+  color:var(--gris);
+  font-size:15px;
+  line-height:1.55;
+}
+h1,h2,h3,.serif{font-family:"Fraunces",Georgia,"Times New Roman",serif;}
+
+/* ---------- Bandeau document fictif ---------- */
+.bandeau-fictif{
+  background:var(--rouge);
+  color:#fff;
+  text-align:center;
+  padding:9px 16px;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+/* ---------- Conteneur ---------- */
+.page{
+  max-width:1000px;
+  margin:0 auto 40px;
+  background:var(--blanc);
+  box-shadow:0 2px 18px rgba(13,43,86,.10);
+}
+
+/* ---------- En-tête ---------- */
+header.entete{
+  background:var(--navy);
+  color:#fff;
+  padding:26px 34px 22px;
+  border-bottom:4px solid var(--gold);
+}
+.marque{
+  font-family:"Fraunces",Georgia,serif;
+  font-size:16px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 10px;
+}
+header.entete h1{
+  margin:0 0 6px;
+  font-size:26px;
+  line-height:1.25;
+  font-weight:700;
+}
+header.entete .sous-titre{
+  margin:0;
+  font-size:14px;
+  opacity:.92;
+}
+.fil-parcours{
+  margin-top:14px;
+  font-size:12.5px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+
+/* ---------- Corps ---------- */
+main{padding:28px 34px 10px;}
+
+.avertissement{
+  border:2px solid var(--navy);
+  background:var(--sky);
+  padding:14px 18px;
+  text-align:center;
+  font-weight:700;
+  color:var(--navy);
+  font-size:15.5px;
+  margin:0 0 24px;
+}
+
+.chapeau{
+  border-left:4px solid var(--gold);
+  background:#fbf8f2;
+  padding:12px 16px;
+  font-size:14px;
+  margin:0 0 26px;
+}
+.chapeau p{margin:0 0 8px;}
+.chapeau p:last-child{margin-bottom:0;}
+
+h2.section{
+  font-size:18px;
+  color:var(--navy);
+  margin:32px 0 12px;
+  padding-bottom:7px;
+  border-bottom:2px solid var(--gold);
+}
+h2.section .num{
+  display:inline-block;
+  background:var(--navy);
+  color:#fff;
+  width:27px;height:27px;
+  line-height:27px;
+  text-align:center;
+  border-radius:50%;
+  font-size:14px;
+  margin-right:9px;
+  font-family:"Nunito",sans-serif;
+  font-weight:700;
+  vertical-align:2px;
+}
+
+/* ---------- Tableaux FIPEN ---------- */
+table.fipen{
+  width:100%;
+  border-collapse:collapse;
+  margin:0 0 8px;
+  font-size:14px;
+}
+table.fipen caption{
+  caption-side:top;
+  text-align:left;
+  font-weight:700;
+  color:var(--blue);
+  padding:0 0 6px;
+  font-size:13.5px;
+}
+table.fipen th,table.fipen td{
+  border:1px solid var(--gris-clair);
+  padding:9px 12px;
+  vertical-align:top;
+  text-align:left;
+}
+table.fipen thead th{
+  background:var(--navy);
+  color:#fff;
+  font-weight:700;
+  font-size:13.5px;
+  letter-spacing:.02em;
+}
+table.fipen tbody tr:nth-child(even) td{background:var(--sky);}
+table.fipen td.libelle{width:44%;}
+table.fipen td.libelle strong{color:var(--navy);display:block;}
+table.fipen td.libelle .explication{
+  display:block;
+  font-size:12.5px;
+  color:#5a6473;
+  margin-top:3px;
+  font-style:italic;
+}
+table.fipen td.valeur{font-weight:600;}
+.cas-echeant{
+  display:inline-block;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--gold);
+  font-weight:700;
+  margin-bottom:3px;
+}
+.montant{
+  font-family:"Fraunces",Georgia,serif;
+  color:var(--navy);
+  font-weight:700;
+  white-space:nowrap;
+}
+.neant{color:#6b7280;font-weight:600;font-style:italic;}
+.oui{color:#0f6b3c;font-weight:700;}
+.non{color:var(--rouge);font-weight:700;}
+
+/* ---------- Encadrés pédagogiques ---------- */
+.repere{
+  border:1px solid var(--gold);
+  border-left:5px solid var(--gold);
+  background:#fdfaf4;
+  padding:12px 16px;
+  margin:14px 0 22px;
+  font-size:13.5px;
+}
+.repere .titre-repere{
+  font-family:"Fraunces",Georgia,serif;
+  font-weight:700;
+  color:var(--navy);
+  display:block;
+  margin-bottom:5px;
+  font-size:14px;
+}
+.repere.reforme{
+  border-color:var(--blue);
+  border-left-color:var(--blue);
+  background:var(--sky);
+}
+.repere.alerte{
+  border-color:var(--rouge);
+  border-left-color:var(--rouge);
+  background:#fdf1f0;
+}
+.repere ul{margin:6px 0 0;padding-left:19px;}
+.repere li{margin-bottom:4px;}
+.hors-doc{
+  float:right;
+  font-size:10.5px;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  color:#8a8578;
+  font-weight:700;
+}
+
+/* ---------- Bloc exemple chiffré ---------- */
+.exemple{
+  border:2px solid var(--navy);
+  margin:18px 0 8px;
+}
+.exemple .titre-ex{
+  background:var(--navy);
+  color:#fff;
+  padding:9px 16px;
+  font-family:"Fraunces",Georgia,serif;
+  font-weight:700;
+  font-size:15px;
+}
+.exemple .grille{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--gris-clair);
+}
+.exemple .cellule{
+  background:#fff;
+  padding:12px 14px;
+}
+.exemple .cellule .k{
+  display:block;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:#5a6473;
+  margin-bottom:4px;
+}
+.exemple .cellule .v{
+  font-family:"Fraunces",Georgia,serif;
+  font-size:19px;
+  font-weight:700;
+  color:var(--navy);
+}
+.exemple .note{
+  background:#fbf8f2;
+  padding:10px 14px;
+  font-size:12.5px;
+  border-top:1px solid var(--gris-clair);
+}
+
+/* ---------- Signature ---------- */
+.signature{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:26px 0 10px;
+}
+.signature .case{
+  border:1px solid var(--gris-clair);
+  padding:12px 14px;
+  min-height:96px;
+  font-size:13px;
+}
+.signature .case strong{color:var(--navy);}
+
+/* ---------- Pied de page ---------- */
+footer.pied{
+  border-top:3px solid var(--gold);
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:16px 20px;
+  font-size:12.5px;
+  margin-top:26px;
+}
+footer.pied .mentions{opacity:.9;}
+
+/* ---------- Impression ---------- */
+@media print{
+  body{background:#fff;font-size:11pt;}
+  .page{box-shadow:none;max-width:none;margin:0;}
+  .repere{page-break-inside:avoid;}
+  table.fipen tr{page-break-inside:avoid;}
+  .exemple,.signature{page-break-inside:avoid;}
+  h2.section{page-break-after:avoid;}
+}
+
+@media (max-width:760px){
+  main{padding:20px 16px 6px;}
+  header.entete{padding:20px 18px;}
+  table.fipen td.libelle{width:auto;}
+  table.fipen,table.fipen tbody,table.fipen tr,table.fipen td{display:block;width:100%;}
+  table.fipen thead{display:none;}
+  table.fipen tr{margin-bottom:10px;border:1px solid var(--gris-clair);}
+  table.fipen td{border:none;border-bottom:1px solid var(--gris-clair);}
+  .exemple .grille{grid-template-columns:1fr 1fr;}
+  .signature{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="bandeau-fictif">Document fictif à usage pédagogique</div>
+
+<div class="page">
+
+  <header class="entete">
+    <p class="marque">TMK Performances</p>
+    <h1>Informations précontractuelles européennes normalisées<br>en matière de crédit aux consommateurs (FIPEN)</h1>
+    <p class="sous-titre">Modèle réglementaire : annexe à l'article R. 312-5 du code de la consommation — version en vigueur du 1<sup>er</sup> juillet 2016 au 20 novembre 2026</p>
+    <div class="fil-parcours">IOBSP Niveau 2 — Journée 3 · Crédit à la consommation et trésorerie · Fiche de référence</div>
+  </header>
+
+  <main>
+
+    <p class="avertissement">« Un crédit vous engage et doit être remboursé.<br>Vérifiez vos capacités de remboursement avant de vous engager. »</p>
+
+    <div class="chapeau">
+      <p><strong>Comment lire cette fiche.</strong> Les rubriques, leur ordre et les phrases explicatives en italique sont <strong>imposés par le modèle réglementaire</strong> : le prêteur ne peut ni les modifier, ni en changer l'ordre. Seules les cases de droite sont renseignées par le prêteur ou l'intermédiaire.</p>
+      <p>Les encadrés dorés et bleus signalés <em>« hors document »</em> sont des commentaires pédagogiques TMK : ils ne figurent jamais sur une FIPEN remise à un client.</p>
+    </div>
+
+    <!-- ================= 1 ================= -->
+    <h2 class="section"><span class="num">1</span>Identité et coordonnées du prêteur / de l'intermédiaire de crédit</h2>
+
+    <table class="fipen">
+      <thead><tr><th>Rubrique</th><th>Information communiquée</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="libelle"><strong>Prêteur</strong><br>Adresse<br>Numéro de téléphone (*)<br>Adresse électronique (*)<br>Adresse internet (*)</td>
+          <td class="valeur">
+            <strong>CRÉDIRIVE FINANCEMENT</strong> — société anonyme au capital de 45 000 000 €<br>
+            Établissement de crédit spécialisé agréé par l'ACPR<br>
+            12 rue des Tanneurs, 59000 Lille<br>
+            03 20 00 00 00<br>
+            contact@credirive-financement.example<br>
+            www.credirive-financement.example
+          </td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Intermédiaire de crédit</strong><br>Adresse<br>Numéro de téléphone (*)<br>Adresse électronique (*)</td>
+          <td class="valeur">
+            <strong>CABINET NORDIS CRÉDIT</strong> — SARL au capital de 20 000 €<br>
+            Mandataire non exclusif d'établissement de crédit (MIOBSP)<br>
+            Immatriculé à l'ORIAS sous le n° 26 000 000 — www.orias.fr<br>
+            3 place du Marché, 59100 Roubaix<br>
+            03 20 11 11 11 — contact@nordis-credit.example<br>
+            Rémunération : commission versée par le prêteur, aucun frais facturé à l'emprunteur avant le versement des fonds
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="repere">
+      <span class="hors-doc">Hors document — repère TMK</span>
+      <span class="titre-repere">Ce que l'IOBSP doit ajouter à la FIPEN</span>
+      La FIPEN ne comporte que l'identité et l'adresse de l'intermédiaire. Les autres informations dues par l'IOBSP — catégorie d'immatriculation, numéro ORIAS, existence ou non d'un lien capitalistique ou d'un mandat exclusif, nombre d'établissements dont il distribue les produits, modalités de réclamation et de médiation — relèvent de l'article <strong>R. 519-24 du code monétaire et financier</strong> et doivent être communiquées <strong>sur un support durable, avant la conclusion du contrat</strong>, en complément de la FIPEN.
+      <ul>
+        <li>Aucune somme ne peut être perçue de l'emprunteur avant le versement effectif des fonds (art. <strong>L. 519-6 CMF</strong>).</li>
+        <li>La FIPEN est remise <strong>gratuitement</strong> et n'engage pas l'emprunteur : ce n'est ni une offre de contrat, ni une acceptation.</li>
+      </ul>
+    </div>
+
+    <!-- ================= 2 ================= -->
+    <h2 class="section"><span class="num">2</span>Description des principales caractéristiques du crédit</h2>
+
+    <table class="fipen">
+      <thead><tr><th>Rubrique</th><th>Information communiquée</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="libelle"><strong>Le type de crédit</strong></td>
+          <td class="valeur">Prêt personnel amortissable à taux fixe, non affecté, à échéances constantes</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Le montant total du crédit</strong><span class="explication">Il s'agit du plafond ou du total des sommes rendues disponibles en vertu du contrat de crédit.</span></td>
+          <td class="valeur"><span class="montant">10 000,00 €</span> — total des sommes rendues disponibles (crédit non renouvelable, sans réserve d'argent)</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Les conditions de mise à disposition des fonds</strong><span class="explication">Il s'agit de la façon dont vous obtiendrez l'argent et du moment auquel vous l'obtiendrez.</span></td>
+          <td class="valeur">Versement en <strong>une seule fois</strong> par virement sur le compte bancaire désigné par l'emprunteur.<br>Aucun versement ne peut intervenir avant l'expiration d'un délai de <strong>7 jours</strong> à compter de l'acceptation de l'offre de contrat de crédit (art. L. 312-25 c. consom.).</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>La durée du contrat de crédit</strong></td>
+          <td class="valeur"><span class="montant">48 mois</span> (4 ans), à compter du versement des fonds</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Les échéances et, le cas échéant, l'ordre dans lequel les échéances seront affectées</strong></td>
+          <td class="valeur">
+            Vous devrez payer ce qui suit :<br>
+            <strong>48 mensualités de <span class="montant">231,97 €</span></strong>, hors assurance facultative, prélevées le 5 de chaque mois, la première intervenant un mois après le versement des fonds.<br><br>
+            Les intérêts et/ou les frais seront dus de la façon suivante : les intérêts sont calculés chaque mois sur le capital restant dû ; <strong>chaque échéance s'impute d'abord sur les frais éventuels et les intérêts, puis sur le capital</strong>. Un tableau d'amortissement détaillant la répartition de chaque échéance est annexé au contrat.
+          </td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Le montant total que vous devrez payer</strong><span class="explication">Il s'agit du montant du capital emprunté majoré des intérêts et des frais éventuels liés à votre crédit.</span></td>
+          <td class="valeur"><span class="montant">11 134,56 €</span><br>soit 10 000,00 € de capital + 1 134,56 € de coût total du crédit (hors assurance facultative)</td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Crédit consenti sous la forme d'un délai de paiement ou lié à la fourniture d'un bien ou d'un service déterminé</strong><br>Nom du bien / service — Prix au comptant</td>
+          <td class="valeur"><span class="neant">Sans objet — crédit non affecté.</span></td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>En cas de location avec option d'achat</strong><br>Description du bien — Prix de vente final au terme de la location</td>
+          <td class="valeur"><span class="neant">Sans objet.</span></td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Sûretés exigées</strong><span class="explication">Il s'agit d'une description de la sûreté que vous devez fournir en relation avec le contrat de crédit.</span></td>
+          <td class="valeur"><span class="neant">Aucune sûreté personnelle ni réelle n'est exigée.</span></td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Les remboursements n'entraînent pas un amortissement immédiat du capital.</strong></td>
+          <td class="valeur"><span class="neant">Sans objet — chaque échéance amortit immédiatement une fraction du capital.</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="exemple">
+      <div class="titre-ex">Exemple chiffré — crédit à la consommation de 10 000 € sur 48 mois</div>
+      <div class="grille">
+        <div class="cellule"><span class="k">Montant total du crédit</span><span class="v">10 000,00 €</span></div>
+        <div class="cellule"><span class="k">Durée</span><span class="v">48 mois</span></div>
+        <div class="cellule"><span class="k">Taux débiteur annuel fixe</span><span class="v">5,37 %</span></div>
+        <div class="cellule"><span class="k">TAEG fixe</span><span class="v">5,50 %</span></div>
+        <div class="cellule"><span class="k">Mensualité (hors assurance)</span><span class="v">231,97 €</span></div>
+        <div class="cellule"><span class="k">Coût total du crédit</span><span class="v">1 134,56 €</span></div>
+        <div class="cellule"><span class="k">Montant total dû</span><span class="v">11 134,56 €</span></div>
+        <div class="cellule"><span class="k">Assurance facultative</span><span class="v">9,50 € / mois</span></div>
+        <div class="cellule"><span class="k">Mensualité assurance comprise</span><span class="v">241,47 €</span></div>
+      </div>
+      <div class="note">
+        Hypothèses de calcul : versement unique des fonds, 48 échéances mensuelles constantes, première échéance un mois après le déblocage, aucun frais de dossier, aucun frais de tenue de compte, taux fixe sur toute la durée. Vérification : 231,97 € × 48 = 11 134,56 € ; 11 134,56 € − 10 000,00 € = 1 134,56 €.
+      </div>
+    </div>
+
+    <!-- ================= 3 ================= -->
+    <h2 class="section"><span class="num">3</span>Coût du crédit</h2>
+
+    <table class="fipen">
+      <thead><tr><th>Rubrique</th><th>Information communiquée</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="libelle"><strong>Le taux débiteur ou, le cas échéant, les différents taux débiteurs qui s'appliquent au contrat de crédit</strong></td>
+          <td class="valeur"><span class="montant">5,37 % l'an</span> — <strong>taux fixe</strong> pendant toute la durée du contrat.<br>Aucune indexation, aucune période de validité limitée, aucune procédure de révision : le taux ne peut être modifié en cours de contrat, ni par décision du prêteur, ni par l'évolution d'un indice.<br>Taux mensuel correspondant : 0,4475 %.</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Taux annuel effectif global (TAEG)</strong><span class="explication">Il s'agit du coût total exprimé en pourcentage annuel du montant total du crédit. Le TAEG vous permet de comparer différentes offres.</span></td>
+          <td class="valeur">
+            <span class="montant">5,50 % — TAEG fixe</span><br><br>
+            <strong>Exemple représentatif :</strong> pour un crédit de 10 000,00 € remboursé en 48 mensualités de 231,97 € (hors assurance facultative), le montant total dû est de 11 134,56 € et le coût total du crédit de 1 134,56 €.<br>
+            <strong>Hypothèses retenues :</strong> contrat exécuté aux dates convenues et sans incident ; taux débiteur fixe de 5,37 % maintenu jusqu'au terme ; versement unique des fonds ; frais de dossier nuls ; assurance facultative non souscrite ; aucun autre service accessoire.
+          </td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Est-il obligatoire, pour l'obtention même du crédit ou conformément aux clauses et conditions commerciales, de contracter :</strong><br>— <strong>une assurance liée au crédit ?</strong></td>
+          <td class="valeur">
+            <span class="non">Non</span> — l'assurance emprunteur est <strong>facultative</strong> et son refus est sans incidence sur l'octroi du crédit ni sur le taux proposé.<br><br>
+            Assurance proposée à titre facultatif : garanties décès, perte totale et irréversible d'autonomie, incapacité temporaire totale de travail.<br>
+            Coût exprimé à l'aide d'un exemple chiffré :<br>
+            • cotisation mensuelle constante : <span class="montant">9,50 €</span> (soit 0,095 % du capital initial par mois) ;<br>
+            • montant total dû au titre de l'assurance : <span class="montant">456,00 €</span> ;<br>
+            • taux annuel effectif de l'assurance (TAEA) : <span class="montant">2,19 %</span> ;<br>
+            • mensualité assurance comprise : <span class="montant">241,47 €</span> — montant total dû assurance comprise : 11 590,56 €.<br><br>
+            <em>Vous pouvez souscrire une assurance équivalente auprès de l'assureur de votre choix.</em>
+          </td>
+        </tr>
+        <tr>
+          <td class="libelle">— <strong>un autre service accessoire ?</strong><span class="explication">Si les coûts de ces services ne sont pas connus du prêteur, ils ne sont pas inclus dans le TAEG.</span></td>
+          <td class="valeur"><span class="non">Non</span> — aucun service accessoire (compte, carte, garantie complémentaire) n'est exigé pour l'obtention du crédit.</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Montant des frais liés à l'exécution du contrat de crédit</strong></td>
+          <td class="valeur"><strong>Frais de dossier : <span class="montant">0 €</span></strong> — aucun frais n'est perçu à la mise en place du crédit.</td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Montant des frais de tenue d'un ou de plusieurs comptes</strong>, si ce ou ces comptes sont nécessaires aux opérations de mise à disposition des fonds ou de paiement des échéances</td>
+          <td class="valeur"><span class="neant">Néant — l'ouverture d'un compte auprès du prêteur n'est pas exigée ; les fonds sont virés et les échéances prélevées sur le compte bancaire habituel de l'emprunteur.</span></td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Montant des frais liés à l'utilisation d'un moyen de paiement déterminé</strong> (par exemple une carte de crédit)</td>
+          <td class="valeur"><span class="neant">Néant — aucune carte ni moyen de paiement spécifique n'est associé au crédit.</span></td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Montant de tout autre frais lié au contrat de crédit</strong></td>
+          <td class="valeur">Frais de rejet de prélèvement : <span class="montant">20,00 €</span> par incident (plafond légal applicable aux personnes physiques n'agissant pas pour des besoins professionnels).<br>Frais de duplicata de tableau d'amortissement : gratuit.</td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Conditions dans lesquelles les frais liés au contrat de crédit susmentionnés peuvent être modifiés</strong></td>
+          <td class="valeur"><span class="neant">Les frais indiqués ci-dessus sont fixes pendant toute la durée du contrat et ne peuvent faire l'objet d'aucune modification unilatérale.</span></td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Obligation de payer des frais de notaire</strong></td>
+          <td class="valeur"><span class="neant">Non — aucun acte notarié n'est requis.</span></td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Frais en cas de défaillance de l'emprunteur</strong><span class="explication">Les impayés risquent d'avoir de graves conséquences pour vous et de vous empêcher d'obtenir un nouveau crédit.</span></td>
+          <td class="valeur">
+            En cas de défaillance, le prêteur pourra :<br>
+            • soit exiger le <strong>remboursement immédiat du capital restant dû</strong>, majoré des intérêts échus et non payés, et réclamer une indemnité de <strong>8 % du capital restant dû</strong> ;<br>
+            • soit accepter la poursuite du contrat et réclamer une indemnité de <strong>4 %</strong> des échéances reportées.<br>
+            Les sommes restant dues produisent intérêt au <strong>taux débiteur du contrat, soit 5,37 % l'an</strong>, jusqu'à leur règlement effectif.<br>
+            L'emprunteur défaillant est susceptible d'être inscrit au <strong>FICP</strong> tenu par la Banque de France.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="repere alerte">
+      <span class="hors-doc">Hors document — repère TMK</span>
+      <span class="titre-repere">Le piège du TAEG en entretien</span>
+      Le TAEG (5,50 %) est <strong>toujours supérieur ou égal au taux débiteur</strong> (5,37 %) : il intègre les intérêts, les frais obligatoires et le coût des services rendus obligatoires pour l'obtention du crédit. Ici les frais sont nuls : l'écart provient uniquement du passage d'un <em>taux nominal proportionnel</em> à un <em>taux actuariel annuel</em>.<br>
+      L'assurance étant <strong>facultative</strong>, son coût n'entre pas dans le TAEG mais fait l'objet d'un indicateur distinct, le <strong>TAEA</strong> (2,19 %). Comparer deux offres sur la seule mensualité est une erreur : c'est le TAEG, à montant et durée identiques, qui permet la comparaison.
+    </div>
+
+    <!-- ================= 4 ================= -->
+    <h2 class="section"><span class="num">4</span>Autres aspects juridiques importants</h2>
+
+    <table class="fipen">
+      <thead><tr><th>Rubrique</th><th>Information communiquée</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="libelle"><strong>Droit de rétractation</strong><span class="explication">Vous disposez d'un délai de quatorze jours calendaires pour revenir sur votre engagement vis-à-vis du contrat de crédit.</span></td>
+          <td class="valeur">
+            <span class="oui">Oui</span> — 14 jours calendaires révolus à compter de l'acceptation de l'offre de contrat de crédit.<br>
+            Le droit s'exerce au moyen du <strong>bordereau détachable</strong> joint à l'offre, adressé au prêteur avant l'expiration du délai. La rétractation est gratuite et n'a pas à être motivée.
+          </td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Remboursement anticipé</strong><span class="explication">Vous avez le droit de procéder à tout moment au remboursement anticipé, total ou partiel, du crédit.</span></td>
+          <td class="valeur"><span class="oui">Oui</span> — à tout moment, en totalité ou en partie, sans formalité autre qu'une demande écrite. Le décompte est établi gratuitement par le prêteur.</td>
+        </tr>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Le prêteur a droit à une indemnité en cas de remboursement anticipé.</strong></td>
+          <td class="valeur">
+            Conformément à l'article <strong>L. 312-34 du code de la consommation</strong>, aucune indemnité n'est due lorsque le montant remboursé par anticipation n'excède pas <strong>10 000 €</strong> sur une période de douze mois.<br>
+            Au-delà de ce seuil, l'indemnité serait de <strong>1 %</strong> du montant remboursé si la durée restante excède un an, et de <strong>0,5 %</strong> dans le cas contraire, sans pouvoir dépasser le montant des intérêts que l'emprunteur aurait payés jusqu'au terme.<br>
+            <strong>Dans le cas présent, le capital restant dû étant au plus égal à 10 000 €, aucune indemnité ne peut être exigée.</strong>
+          </td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Le prêteur doit, dans le cadre de la procédure d'octroi du crédit, consulter le fichier national des incidents de remboursement des crédits aux particuliers.</strong></td>
+          <td class="valeur"><span class="oui">Oui</span> — le FICP est consulté avant toute décision d'octroi, ainsi qu'avant toute augmentation du montant du crédit. La consultation est tracée et conservée.</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Droit à un projet de contrat de crédit</strong><span class="explication">Vous avez le droit d'obtenir gratuitement, sur demande, un exemplaire du projet de contrat de crédit. Cette disposition ne s'applique pas si, au moment de la demande, le prêteur n'est pas disposé à conclure le contrat de crédit avec vous.</span></td>
+          <td class="valeur"><span class="oui">Oui</span> — remise gratuite et immédiate, sur simple demande, en agence ou par voie électronique sur support durable.</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Le délai pendant lequel le prêteur est lié par les informations précontractuelles</strong></td>
+          <td class="valeur">Ces informations sont valables <strong>du 11 août 2026 au 25 août 2026</strong> inclus.<br><em>À ne pas confondre avec le maintien de l'offre de contrat de crédit, que le prêteur est tenu de maintenir pendant 15 jours à compter de sa remise à l'emprunteur.</em></td>
+        </tr>
+        <tr>
+          <td class="libelle">Informations complémentaires</td>
+          <td class="valeur">Toutes les informations complémentaires que le prêteur souhaite donner sont fournies dans un document distinct annexé à la présente fiche : notice d'assurance facultative, fiche standardisée d'information sur l'assurance emprunteur, tableau d'amortissement prévisionnel.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ================= 5 ================= -->
+    <h2 class="section"><span class="num">5</span>Le cas échéant — informations complémentaires en cas de vente à distance de services financiers (art. L. 222-1 c. consom.)</h2>
+
+    <p style="font-size:13.5px;margin:0 0 12px;"><em>Rubrique à compléter uniquement lorsque le crédit est commercialisé à distance. Elle est renseignée ci-dessous à titre d'illustration.</em></p>
+
+    <table class="fipen">
+      <caption>a) Informations relatives au prêteur</caption>
+      <tbody>
+        <tr>
+          <td class="libelle"><span class="cas-echeant">Le cas échéant</span><strong>Représentant du prêteur dans l'État membre dans lequel vous résidez</strong></td>
+          <td class="valeur"><span class="neant">Sans objet — le prêteur exerce directement en France.</span></td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Enregistrement</strong></td>
+          <td class="valeur">CRÉDIRIVE FINANCEMENT — RCS Lille Métropole 000 000 000, agréé en qualité d'établissement de crédit spécialisé, inscrit au registre des agents financiers (REGAFI).</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>L'autorité de surveillance</strong></td>
+          <td class="valeur">Autorité de contrôle prudentiel et de résolution (ACPR), 4 place de Budapest, CS 92459, 75436 Paris Cedex 09.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="fipen">
+      <caption>b) Informations relatives au contrat de crédit</caption>
+      <tbody>
+        <tr>
+          <td class="libelle"><strong>Exercice du droit de rétractation</strong></td>
+          <td class="valeur">Délai de 14 jours calendaires révolus à compter de l'acceptation de l'offre. Le bordereau détachable, ou toute déclaration dénuée d'ambiguïté, doit être adressé à : CRÉDIRIVE FINANCEMENT — Service Rétractation, 12 rue des Tanneurs, 59000 Lille. À défaut d'exercice dans le délai, le contrat de crédit devient définitif et doit être exécuté selon les modalités convenues.</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>La législation sur laquelle le prêteur se fonde pour établir des relations avec vous avant la conclusion du contrat de crédit</strong></td>
+          <td class="valeur">Droit français — code de la consommation, livre III, titre I<sup>er</sup>, chapitre II (crédit à la consommation).</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Clause concernant la législation applicable au contrat de crédit et/ou la juridiction compétente</strong></td>
+          <td class="valeur">Le contrat est régi par le droit français. Les litiges relèvent des juridictions françaises compétentes, sans préjudice des règles protectrices applicables au consommateur.</td>
+        </tr>
+        <tr>
+          <td class="libelle"><strong>Régime linguistique</strong></td>
+          <td class="valeur">Les informations et les conditions contractuelles seront fournies en <strong>français</strong>. Avec votre accord, nous comptons communiquer en <strong>français</strong> pendant la durée du contrat de crédit.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="fipen">
+      <caption>c) Informations relatives au droit de recours</caption>
+      <tbody>
+        <tr>
+          <td class="libelle"><strong>Existence de procédures extrajudiciaires de réclamation et de recours et modalités d'accès à ces procédures</strong></td>
+          <td class="valeur">
+            1<sup>re</sup> étape — Service Réclamations du prêteur : 12 rue des Tanneurs, CS 90012, 59000 Lille — reclamations@credirive-financement.example (accusé de réception sous 10 jours ouvrables, réponse sous 2 mois).<br>
+            2<sup>e</sup> étape — Médiateur de la consommation compétent, saisissable gratuitement après réclamation écrite restée sans réponse satisfaisante. Coordonnées communiquées dans la réponse du service réclamations et disponibles sur le site du prêteur.<br>
+            Le recours au médiateur suspend la prescription et reste sans préjudice de la saisine du juge.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="fipen">
+      <tbody>
+        <tr>
+          <td colspan="2" style="font-size:12.5px;background:#fbf8f2;">
+            <strong>(*)</strong> Les informations suivies de ce signe sont facultatives pour le prêteur.<br>
+            <strong>« Le cas échéant »</strong> : lorsque cette mention est indiquée, le prêteur doit remplir la case si l'information est pertinente pour le crédit, ou supprimer l'information correspondante ou toute la ligne si l'information ne concerne pas le type de crédit envisagé.<br>
+            <strong>[Indications entre crochets]</strong> : ces explications sont destinées au prêteur et doivent être remplacées par les informations correspondantes.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ================= Remise ================= -->
+    <div class="signature">
+      <div class="case">
+        <strong>Remise de la fiche</strong><br>
+        Fiche remise le : 11 août 2026<br>
+        Par : CABINET NORDIS CRÉDIT, intermédiaire de crédit<br>
+        Support : ☐ papier &nbsp; ☐ support durable électronique
+      </div>
+      <div class="case">
+        <strong>Accusé de réception de l'emprunteur</strong><br>
+        <em>« Je reconnais avoir reçu la présente fiche d'informations précontractuelles et les explications permettant d'en apprécier la portée. »</em><br>
+        Nom, date et signature :
+      </div>
+    </div>
+
+    <div class="repere">
+      <span class="hors-doc">Hors document — repère TMK</span>
+      <span class="titre-repere">Ne pas confondre trois obligations distinctes</span>
+      <ul>
+        <li><strong>La FIPEN</strong> (art. L. 312-12) : une information <em>standardisée</em>, remise sur support papier ou durable, identique pour tous les clients à caractéristiques de crédit identiques.</li>
+        <li><strong>Les explications</strong> (art. L. 312-14) : une information <em>orale et personnalisée</em>, adaptée au client, permettant de comprendre les conséquences du crédit sur sa situation financière — elle ne se confond pas avec la remise de la fiche.</li>
+        <li><strong>Le devoir de mise en garde</strong> (art. L. 312-14, al. 2) : déclenché lorsque l'examen de solvabilité fait apparaître un risque d'inadaptation du crédit aux capacités de remboursement.</li>
+      </ul>
+      Un IOBSP qui se contente de faire signer la FIPEN sans tracer les explications fournies ne remplit pas son obligation : c'est <strong>au professionnel</strong> qu'il revient de prouver l'exécution de ces obligations.
+    </div>
+
+    <div class="repere reforme">
+      <span class="hors-doc">Hors document — repère TMK</span>
+      <span class="titre-repere">Ce qui change au 20 novembre 2026</span>
+      Le modèle reproduit ci-dessus est celui de l'annexe à l'article R. 312-5 du code de la consommation, <strong>en vigueur jusqu'au 20 novembre 2026</strong>. À cette date entre en application l'ordonnance n° 2025-880 du 3 septembre 2025, qui transpose la directive (UE) 2023/2225 :
+      <ul>
+        <li><strong>Champ d'application élargi</strong> : suppression du plancher de 200 €, intégration des paiements fractionnés (BNPL), des crédits gratuits, des locations avec option d'achat et des crédits de courte durée.</li>
+        <li><strong>Information précontractuelle renforcée</strong> : remise « en temps utile » avant que l'emprunteur ne soit lié, sur un support durable, avec rappel obligatoire du droit de rétractation lorsque la fiche a été fournie moins d'un jour avant la conclusion du contrat.</li>
+        <li><strong>Mise en avant des éléments essentiels</strong> : montant total du crédit, TAEG, montant total dû, durée et montant des échéances doivent apparaître de façon proéminente, en particulier sur écran.</li>
+        <li><strong>Contrats en cours</strong> : les contrats conclus avant le 20 novembre 2026 restent régis par le droit antérieur, sous réserve de certaines règles applicables aux crédits à durée indéterminée.</li>
+      </ul>
+      <em>Pendant la période de transition, l'IOBSP doit savoir dire sous quel régime se place l'opération qu'il présente : la date de conclusion du contrat en est la clé.</em>
+    </div>
+
+  </main>
+
+  <footer class="pied">
+    <div class="mentions">TMK Performances - N° Siret : 49841924100027 - Code NAF : 8559A</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
